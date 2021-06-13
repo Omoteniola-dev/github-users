@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Search from './components/Search';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+type MyState = {
+  input: string
 }
+class App extends Component<{}, MyState> {
+  constructor(props: any){
+    super(props);
+    this.state= {
+      input: ""
+    }
+  }
+
+  SearchChange = (e: any) =>{
+    this.setState({ input: e.currentTarget.value })
+  }
+
+  render() {
+    const { input } = this.state;
+    return (
+      <div>
+        <Search input={input} SearchChange={this.SearchChange}/>
+      </div>
+    );
+  };
+};
 
 export default App;
