@@ -18,7 +18,10 @@ class App extends Component<{}, MyState> {
   }
 
   SearchChange = (e: any) =>{
-    this.setState({ input: e.currentTarget.value })
+    if(e.currentTarget.value !== null){
+      return this.setState({ input: e.currentTarget.value });
+    }
+    return;
   }
 
   getUser = async (e: any) => {
@@ -28,7 +31,7 @@ class App extends Component<{}, MyState> {
       return this.setState({ userData: user.data})
     }
     catch(err){
-      alert(err);
+      alert('An error occured while getting user details. Ensure that you have valid username in the input field');
     }
   };
 
