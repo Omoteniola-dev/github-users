@@ -37,6 +37,7 @@ class App extends Component<{}, MyState> {
     
     return (
       <div>
+        <h1>Check a github user's profile by typing their username</h1>
         <Search input={input} SearchChange={this.SearchChange} getUser={this.getUser}/>
         <GithubUser userData={userData} />
       </div>

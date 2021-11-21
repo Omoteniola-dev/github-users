@@ -11,7 +11,7 @@ const Search:React.FC<searchProps> = ({input, SearchChange, getUser}) => {
         <div>
             <form onSubmit={getUser}>
                 <input type="text" name="text" value={input} id="text" placeholder="Enter username" onChange={SearchChange} />
-                <button>Search</button>
+                <button className="btn">Search</button>
             </form>
         </div>
     )
